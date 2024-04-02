@@ -8,7 +8,6 @@ public class Activity {
     public String facilitator ;
     public String[] room;
     public String timeSlot;
-    public List<Activity> activityList;
 
     public Activity(String name, int expectedEnrollment,
                     List<String> preferredFacilitators, List<String> crossoverFacilitators,
@@ -20,17 +19,18 @@ public class Activity {
         this.room = room;
         this.timeSlot = timeSlot;
         this.facilitator = facilitator;
-        printActivity();
+        //printActivity();
     }
 
     public void printActivity(){
-        System.out.println(name);
-        System.out.println(expectedEnrollment);
-        System.out.println(preferredFacilitators);
-        System.out.println(crossoverFacilitators);
-        System.out.println(Arrays.toString(room));
-        System.out.println(timeSlot);
-        System.out.println(facilitator);
+        System.out.println("name:" + name);
+        System.out.println("ExpectedEnrollment: "+expectedEnrollment);
+        System.out.println("Preferred:"+ preferredFacilitators);
+        System.out.println("Crossover: "+ crossoverFacilitators);
+        System.out.println("Room: " + Arrays.toString(room));
+        System.out.println("Time: "+ timeSlot);
+        System.out.println("Facilitator: "+facilitator);
+        System.out.println("\n\n");
     }
 
 }
