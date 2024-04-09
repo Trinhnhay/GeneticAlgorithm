@@ -1,7 +1,13 @@
+
 public class Main {
     public static void main(String[] args) {
-        new Population();
-        //new Schedule();
+
+        Population population = new Population();
+
+        OutputWriter writer = new OutputWriter();
+        writer.writeSchedule(population);
 
     }
+
+
 }

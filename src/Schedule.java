@@ -3,14 +3,17 @@ public class Schedule {
 
     public Room room = new Room();
     public TimeSlot timeSlot = new TimeSlot();
-    List <Activity> activityList = new ArrayList<>();
+    public List <Activity> activityList = new ArrayList<>();
     public Facilitator facilitators = new Facilitator();
 
     public Schedule(){
         createNewSchedule();
-       // displaySchedule();
-
     }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     public void createNewSchedule (){
         Random random = new Random();
 
@@ -22,12 +25,21 @@ public class Schedule {
         activityList.add(new Activity("SLA100A",50,preferredFacilitators, otherFacilitators,
                                     RandomRoom,time, facilitator));
 
+        RandomRoom = room.roomList.get(random.nextInt(room.roomList.size()));
+        time = timeSlot.timeSlot[random.nextInt(timeSlot.timeSlot.length)];
+        facilitator = facilitators.facilitator[random.nextInt(facilitators.facilitator.length)];
         activityList.add(new Activity("SLA100B",50,preferredFacilitators, otherFacilitators,
                 RandomRoom,time, facilitator));
 
+        RandomRoom = room.roomList.get(random.nextInt(room.roomList.size()));
+        time = timeSlot.timeSlot[random.nextInt(timeSlot.timeSlot.length)];
+        facilitator = facilitators.facilitator[random.nextInt(facilitators.facilitator.length)];
         activityList.add(new Activity("SLA191A",50,preferredFacilitators, otherFacilitators,
                 RandomRoom,time, facilitator));
 
+        RandomRoom = room.roomList.get(random.nextInt(room.roomList.size()));
+        time = timeSlot.timeSlot[random.nextInt(timeSlot.timeSlot.length)];
+        facilitator = facilitators.facilitator[random.nextInt(facilitators.facilitator.length)];
         activityList.add(new Activity("SLA191B",50,preferredFacilitators, otherFacilitators,
                 RandomRoom,time, facilitator));
 
@@ -71,7 +83,7 @@ public class Schedule {
         RandomRoom = room.roomList.get(random.nextInt(room.roomList.size()));
         time = timeSlot.timeSlot[random.nextInt(timeSlot.timeSlot.length)];
         facilitator = facilitators.facilitator[random.nextInt(facilitators.facilitator.length)];
-        activityList.add(new Activity("SLA394", 20, preferredFacilitators,otherFacilitators,RandomRoom,time, facilitator));
+        activityList.add(new Activity("SLA449", 20, preferredFacilitators,otherFacilitators,RandomRoom,time, facilitator));
 
         preferredFacilitators=List.of( "Tyler","Singer","Shaw");
         otherFacilitators=List.of("Richards", "Uther","Zeldin","Banks");
@@ -81,10 +93,19 @@ public class Schedule {
         activityList.add(new Activity("SLA451", 100, preferredFacilitators,otherFacilitators,RandomRoom,time, facilitator));
 
     }
-
     public void displaySchedule(){
         for(Activity activity:activityList) {
             activity.printActivity();
         }
     }
+    public String writeSchedule(){
+        StringBuilder schedule= new StringBuilder();
+        int i= 0;
+        for(Activity activity:activityList){
+            schedule.append(i).append(". ").append(activity.writeActivity());
+            i++;
+        }
+        return schedule + " ";
+    }
+
 }

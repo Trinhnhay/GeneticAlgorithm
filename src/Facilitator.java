@@ -1,9 +1,7 @@
 
-
 public class Facilitator {
 
     public String [] facilitator = new String[10];
-    //public List<String> facilitator = new ArrayList<>();
     public Facilitator(){
         initializeFacilitator();
     }

@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Activity {
+
     public String name;
     public int expectedEnrollment;
     public List<String> preferredFacilitators;
@@ -19,7 +20,18 @@ public class Activity {
         this.room = room;
         this.timeSlot = timeSlot;
         this.facilitator = facilitator;
-        //printActivity();
+    }
+
+    public void setTimeSlot(String timeSlot) {
+        this.timeSlot = timeSlot;
+    }
+
+    public void setFacilitator(String facilitator) {
+        this.facilitator = facilitator;
+    }
+
+    public void setRoom(String[] room) {
+        this.room = room;
     }
 
     public void printActivity(){
@@ -30,7 +42,18 @@ public class Activity {
         System.out.println("Room: " + Arrays.toString(room));
         System.out.println("Time: "+ timeSlot);
         System.out.println("Facilitator: "+facilitator);
-        System.out.println("\n\n");
+        System.out.println("\n");
+    }
+
+    public String writeActivity(){
+
+        return "Name: "+ name +
+                "\nExpectedEnrollment: " + expectedEnrollment +
+                "\nPreferred: "+ preferredFacilitators +
+                "\nCrossover: "+ crossoverFacilitators +
+                "\nRoom: " + Arrays.toString(room) +
+                "\nTime: "+ timeSlot +
+                "\nFacilitator: "+facilitator+ "\n\n";
     }
 
 }

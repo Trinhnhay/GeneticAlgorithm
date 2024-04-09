@@ -3,7 +3,6 @@ public class TimeSlot {
     public TimeSlot(){
         initializeTimeSlot();
     }
-
     private void initializeTimeSlot(){
         timeSlot[0] = "10";
         timeSlot[1] = "11";

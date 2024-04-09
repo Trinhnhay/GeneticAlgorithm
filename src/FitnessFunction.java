@@ -1,17 +1,15 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static java.lang.Math.*;
 
 public class FitnessFunction {
 
-    List <Double> fitnessList = new ArrayList<>();
-    Schedule schedule;
-    Double scheduleFitness =0.0;
+    public List <Double> fitnessList = new ArrayList<>();
+    public Schedule schedule;
+    public Double scheduleFitness =0.0;
 
     public FitnessFunction(Schedule schedule){
         this.schedule = schedule;
-        calculateScheduleFitness();
     }
 
     public void calculateActivityFitness(){
@@ -128,27 +126,12 @@ public class FitnessFunction {
         }
         return score;
     }
-    public List <Double> softmax (List <Double> fitnessList){
-        List <Double> result = new ArrayList<>();
 
-        Double sum = 0.0;
-
-        // Calculate exponential for each element and sum
-        for (Double value : fitnessList){
-            sum += Math.exp(value);
-        }
-
-        // Calculate softmax for each element
-        for (int i = 0; i < fitnessList.size(); i++) {
-            result.add (Math.exp(fitnessList.get(i))/sum);
-        }
-
-        return result;
-    }
-    public void calculateScheduleFitness(){
+    public double calculateScheduleFitness(){
         calculateActivityFitness();
         for (Double fitness : fitnessList) {
             scheduleFitness+=fitness;
         }
+        return scheduleFitness;
     }
 }
